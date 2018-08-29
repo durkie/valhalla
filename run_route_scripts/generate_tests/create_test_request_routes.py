@@ -29,9 +29,9 @@ def create_routes(lls):
       from_ll = re.split(',',str(lls[c]))
       to_ll = re.split(',',str(lls[i]))
       if sys.argv[3:] and sys.argv[4:]:
-        print 'https://api-valhalla-traffic-testing-324770551.us-east-1.elb.amazonaws.com/valhalla/v1/route?json=' + json.dumps({'costing': sys.argv[2], 'locations': [{'lat': from_ll[0], 'lon': from_ll[1]}, {'lat': to_ll[0], 'lon': to_ll[1]}], 'date_time': {'type': int(sys.argv[3]), 'value': sys.argv[4]}}, sort_keys=True, separators=(',',':')) + '&access_token=<your key>'
+        print 'https://<elb>/valhalla/v1/route?json=' + json.dumps({'costing': sys.argv[2], 'locations': [{'lat': from_ll[0], 'lon': from_ll[1]}, {'lat': to_ll[0], 'lon': to_ll[1]}], 'date_time': {'type': int(sys.argv[3]), 'value': sys.argv[4]}}, sort_keys=True, separators=(',',':')) + '&access_token=<your key>'
       else:
-        print 'https://api-valhalla-traffic-testing-324770551.us-east-1.elb.amazonaws.com/valhalla/v1/route?json=' + json.dumps({'costing': sys.argv[2], 'locations': [{'lat': from_ll[0], 'lon': from_ll[1]}, {'lat': to_ll[0], 'lon': to_ll[1]}]}, sort_keys=True, separators=(',',':')) + '&access_token=<your key>'
+        print 'https://<elb>/v1/route?json=' + json.dumps({'costing': sys.argv[2], 'locations': [{'lat': from_ll[0], 'lon': from_ll[1]}, {'lat': to_ll[0], 'lon': to_ll[1]}]}, sort_keys=True, separators=(',',':')) + '&access_token=<your key>'
       
 
 lls = read_locations()
